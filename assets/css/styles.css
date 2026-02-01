@@ -477,4 +477,243 @@ body {
   .question-text {
     font-size: 1.1rem;
   }
+
+  .seo-content {
+    padding: 15px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .topic-bar,
+  .stats,
+  .loading,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .question-card {
+    page-break-inside: avoid;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Accessibility - Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Visually Hidden (for screen readers) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus Styles for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn:focus-visible,
+.choice:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --bg: #000;
+    --bg-card: #111;
+    --text: #fff;
+    --border: #666;
+  }
+
+  .choice {
+    border-width: 3px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .spinner {
+    animation: none;
+    border-top-color: var(--primary);
+    opacity: 0.5;
+  }
+}
+
+/* Dark/Light mode preference (already dark, add light alternative) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f5f6fa;
+    --bg-card: #ffffff;
+    --bg-hover: #f0f1f5;
+    --text: #1a1a2e;
+    --text-muted: #666680;
+    --border: #dddde8;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Footer Styles */
+.footer {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer nav {
+  margin-top: 10px;
+}
+
+/* SEO Content Section */
+.seo-content {
+  margin-top: 30px;
+  padding: 25px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  text-align: left;
+}
+
+.seo-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+.seo-content ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.seo-content li {
+  padding-left: 24px;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.seo-content li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: bold;
+}
+
+.seo-content li strong {
+  color: var(--text);
+}
+
+/* Welcome link styles */
+.welcome a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.welcome a:hover {
+  text-decoration: underline;
+}
+
+/* Performance: Content visibility for long feeds */
+.questions-feed .question-card:nth-child(n + 10) {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 400px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styles */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Additional difficulty badge levels */
+.difficulty-badge.beginner {
+  background: rgba(116, 185, 255, 0.2);
+  color: #74b9ff;
+}
+
+.difficulty-badge.intermediate {
+  background: rgba(255, 159, 67, 0.2);
+  color: #ff9f43;
+}
+
+.difficulty-badge.advanced {
+  background: rgba(255, 107, 107, 0.2);
+  color: #ff6b6b;
+}
+
+.difficulty-badge.expert {
+  background: rgba(162, 155, 254, 0.2);
+  color: #a29bfe;
+}
+
+.difficulty-badge.master {
+  background: rgba(253, 121, 168, 0.2);
+  color: #fd79a8;
 }

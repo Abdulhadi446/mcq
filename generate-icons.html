@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Generate PWA Icons</title>
+    <style>
+      body {
+        font-family: system-ui;
+        padding: 20px;
+        background: #1a1a2e;
+        color: white;
+      }
+      .icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .icon-box {
+        text-align: center;
+      }
+      canvas {
+        border: 1px solid #333;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      a {
+        color: #6c5ce7;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🖼️ PWA Icon Generator</h1>
+    <p>
+      Click each "Download" button to save the icons, then place them in
+      <code>assets/images/</code>
+    </p>
+
+    <div class="icons" id="icons"></div>
+
+    <script>
+      const sizes = [16, 32, 72, 96, 128, 144, 152, 192, 384, 512];
+      const container = document.getElementById("icons");
+
+      sizes.forEach((size) => {
+        const box = document.createElement("div");
+        box.className = "icon-box";
+
+        const canvas = document.createElement("canvas");
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext("2d");
+
+        // Draw gradient background
+        const gradient = ctx.createLinearGradient(0, 0, size, size);
+        gradient.addColorStop(0, "#6c5ce7");
+        gradient.addColorStop(1, "#a29bfe");
+        ctx.fillStyle = gradient;
+
+        // Rounded rect
+        const radius = size * 0.2;
+        ctx.beginPath();
+        ctx.moveTo(radius, 0);
+        ctx.lineTo(size - radius, 0);
+        ctx.quadraticCurveTo(size, 0, size, radius);
+        ctx.lineTo(size, size - radius);
+        ctx.quadraticCurveTo(size, size, size - radius, size);
+        ctx.lineTo(radius, size);
+        ctx.quadraticCurveTo(0, size, 0, size - radius);
+        ctx.lineTo(0, radius);
+        ctx.quadraticCurveTo(0, 0, radius, 0);
+        ctx.fill();
+
+        // Question mark
+        ctx.fillStyle = "white";
+        ctx.font = `bold ${size * 0.5}px system-ui`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("?", size / 2, size / 2 + size * 0.05);
+
+        // Checkmark circle
+        const checkRadius = size * 0.12;
+        const checkX = size * 0.75;
+        const checkY = size * 0.25;
+        ctx.fillStyle = "#00b894";
+        ctx.beginPath();
+        ctx.arc(checkX, checkY, checkRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Checkmark
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = size * 0.03;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.beginPath();
+        ctx.moveTo(checkX - checkRadius * 0.4, checkY);
+        ctx.lineTo(checkX - checkRadius * 0.1, checkY + checkRadius * 0.3);
+        ctx.lineTo(checkX + checkRadius * 0.5, checkY - checkRadius * 0.3);
+        ctx.stroke();
+
+        box.appendChild(canvas);
+
+        // Download link
+        const link = document.createElement("a");
+        link.download = size <= 32 ? `favicon-${size}.png` : `icon-${size}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.innerHTML = `<br><button>Download ${size}x${size}</button>`;
+        box.appendChild(link);
+
+        container.appendChild(box);
+      });
+
+      // OG Image (1200x630)
+      const ogBox = document.createElement("div");
+      ogBox.className = "icon-box";
+      ogBox.style.width = "100%";
+
+      const ogCanvas = document.createElement("canvas");
+      ogCanvas.width = 1200;
+      ogCanvas.height = 630;
+      const ogCtx = ogCanvas.getContext("2d");
+
+      // Background gradient
+      const ogGradient = ogCtx.createLinearGradient(0, 0, 1200, 630);
+      ogGradient.addColorStop(0, "#0f0f1a");
+      ogGradient.addColorStop(1, "#1a1a2e");
+      ogCtx.fillStyle = ogGradient;
+      ogCtx.fillRect(0, 0, 1200, 630);
+
+      // Accent gradient circle
+      ogCtx.fillStyle = "rgba(108, 92, 231, 0.3)";
+      ogCtx.beginPath();
+      ogCtx.arc(1000, 500, 400, 0, Math.PI * 2);
+      ogCtx.fill();
+
+      // Title
+      ogCtx.fillStyle = "white";
+      ogCtx.font = "bold 72px system-ui";
+      ogCtx.fillText("🧠 Infinite MCQ", 80, 200);
+
+      // Subtitle
+      ogCtx.fillStyle = "#a29bfe";
+      ogCtx.font = "36px system-ui";
+      ogCtx.fillText("AI-Powered Quiz Generator", 80, 280);
+
+      // Features
+      ogCtx.fillStyle = "#8888a0";
+      ogCtx.font = "28px system-ui";
+      ogCtx.fillText(
+        "✓ Unlimited Questions  ✓ Any Topic  ✓ Adaptive Difficulty",
+        80,
+        380,
+      );
+      ogCtx.fillText("✓ Instant Feedback  ✓ Free & No Signup", 80, 430);
+
+      // URL
+      ogCtx.fillStyle = "#6c5ce7";
+      ogCtx.font = "24px system-ui";
+      ogCtx.fillText("mcq.sodeom.com", 80, 550);
+
+      ogBox.innerHTML = "<h3>Social Share Image (1200x630)</h3>";
+      ogBox.appendChild(ogCanvas);
+
+      const ogLink = document.createElement("a");
+      ogLink.download = "og-image.png";
+      ogLink.href = ogCanvas.toDataURL("image/png");
+      ogLink.innerHTML = "<button>Download OG Image</button>";
+      ogBox.appendChild(ogLink);
+
+      container.appendChild(ogBox);
+    </script>
+  </body>
+</html>

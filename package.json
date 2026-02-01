@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json.schemastore.org/web-types",
+    "private": true,
+    "name": "infinite-mcq-generator",
+    "version": "1.0.0",
+    "description": "AI-powered infinite MCQ generator with adaptive difficulty",
+    "author": "Sodeom",
+    "license": "MIT",
+    "homepage": "https://mcq.sodeom.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sodeom/mcq"
+    },
+    "keywords": [
+        "mcq",
+        "quiz",
+        "ai",
+        "education",
+        "learning",
+        "pwa"
+    ]
+}

@@ -1,0 +1,18 @@
+# humanstxt.org
+
+/* TEAM */
+Creator: Sodeom
+Site: https://sodeom.com
+Location: Worldwide
+
+/* THANKS */
+AI: Powered by Sodeom AI
+Icons: Custom SVG design
+
+/* SITE */
+Last update: 2026/02/02
+Language: English
+Doctype: HTML5
+Standards: CSS3, ES6+
+Components: PWA, Service Worker
+IDE: VS Code

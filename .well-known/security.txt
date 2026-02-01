@@ -1,0 +1,7 @@
+# Security Policy for Infinite MCQ Generator
+# https://mcq.sodeom.com/.well-known/security.txt
+
+Contact: mailto:security@sodeom.com
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://mcq.sodeom.com/.well-known/security.txt
