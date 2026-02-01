@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      Infinite MCQ Generator - AI-Powered Quiz Practice | Free Online
+    </title>
+    <meta
+      name="title"
+      content="Infinite MCQ Generator - AI-Powered Quiz Practice | Free Online"
+    />
+    <meta
+      name="description"
+      content="Practice unlimited multiple choice questions on any topic with AI-powered adaptive difficulty. Perfect for exam prep, learning new subjects, and testing your knowledge. Free, no signup required."
+    />
+    <meta
+      name="keywords"
+      content="MCQ generator, quiz practice, AI quiz, multiple choice questions, exam preparation, online learning, adaptive learning, knowledge test, trivia, educational quiz"
+    />
+    <meta name="author" content="Sodeom" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mcq.sodeom.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mcq.sodeom.com/" />
+    <meta
+      property="og:title"
+      content="Infinite MCQ Generator - AI-Powered Quiz Practice"
+    />
+    <meta
+      property="og:description"
+      content="Practice unlimited multiple choice questions on any topic. AI adapts difficulty to your skill level. Free, no signup required."
+    />
+    <meta
+      property="og:image"
+      content="https://mcq.sodeom.com/assets/images/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Infinite MCQ" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://mcq.sodeom.com/" />
+    <meta
+      name="twitter:title"
+      content="Infinite MCQ Generator - AI-Powered Quiz Practice"
+    />
+    <meta
+      name="twitter:description"
+      content="Practice unlimited MCQs on any topic. AI adapts to your level. Free & instant!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://mcq.sodeom.com/assets/images/og-image.png"
+    />
+
+    <!-- PWA / Mobile -->
+    <meta name="theme-color" content="#6c5ce7" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Infinite MCQ" />
+    <link rel="apple-touch-icon" href="assets/images/icon-192.png" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon-16.png"
+    />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://sodeom.com" />
+    <link rel="dns-prefetch" href="https://sodeom.com" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Infinite MCQ Generator",
+        "description": "AI-powered multiple choice question generator with adaptive difficulty for learning any topic",
+        "url": "https://mcq.sodeom.com/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Sodeom",
+          "url": "https://sodeom.com"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "1250"
+        }
+      }
+    </script>
+
+    <!-- Structured Data - FAQ for AEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an MCQ Generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An MCQ (Multiple Choice Question) Generator is a tool that creates quiz questions with multiple answer options. Our AI-powered generator creates unlimited unique questions on any topic you choose, with adaptive difficulty that matches your skill level."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the adaptive difficulty work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The system tracks your correct and incorrect answers. When you answer several questions correctly in a row, the difficulty increases from Beginner to Easy, Medium, Intermediate, Advanced, Expert, and Master levels. If you struggle, it automatically adjusts back down to help you learn."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this MCQ Generator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! The Infinite MCQ Generator is completely free to use with no signup required. Simply enter a topic and start practicing immediately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What topics can I practice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can practice any topic! Popular choices include Programming, Science, History, Geography, Mathematics, Languages, Medicine, Law, and General Knowledge. The AI generates relevant questions for whatever subject you enter."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Structured Data - HowTo for AEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Use the Infinite MCQ Generator",
+        "description": "Learn how to practice unlimited quiz questions on any topic",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Enter a Topic",
+            "text": "Type any topic you want to practice in the input field (e.g., JavaScript, World History, Biology)"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Click Start",
+            "text": "Press the Start button to generate your first question"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Select Your Answer",
+            "text": "Click on one of the four answer choices to submit your answer"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Review Feedback",
+            "text": "See if you were correct and read the explanation to learn more"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Continue Learning",
+            "text": "The next question generates automatically. Keep going as long as you want!"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header class="header" role="banner">
+        <h1>🧠 Infinite MCQ</h1>
+        <div
+          class="stats"
+          id="stats"
+          aria-live="polite"
+          aria-label="Your score"
+        >
+          <span class="stat"
+            >Score: <strong id="score">0</strong>/<strong id="total"
+              >0</strong
+            ></span
+          >
+          <span class="stat">Streak: <strong id="streak">0</strong>🔥</span>
+        </div>
+      </header>
+
+      <!-- Topic Selection -->
+      <nav class="topic-bar" role="search" aria-label="Topic selection">
+        <label for="topic" class="visually-hidden">Enter quiz topic</label>
+        <input
+          type="text"
+          id="topic"
+          placeholder="Enter topic (e.g., JavaScript, History, Science)"
+          value="General Knowledge"
+          aria-describedby="topic-help"
+          autocomplete="off"
+        />
+        <button id="startBtn" class="btn btn-primary" aria-label="Start quiz">
+          Start
+        </button>
+      </nav>
+      <p id="topic-help" class="visually-hidden">
+        Type any subject you want to be quizzed on, then press Start
+      </p>
+
+      <!-- Main Question Area -->
+      <main class="main" role="main" id="main-content">
+        <!-- Welcome State -->
+        <section id="welcome" class="welcome" aria-labelledby="welcome-heading">
+          <h2 id="welcome-heading">Welcome to Infinite MCQ!</h2>
+          <p>
+            Enter a topic above and click <strong>Start</strong> to begin your
+            infinite MCQ session.
+          </p>
+          <p class="hint">
+            Powered by <a href="https://sodeom.com" rel="noopener">Sodeom AI</a>
+          </p>
+
+          <!-- SEO Content -->
+          <div class="seo-content">
+            <h3>Why Use Our MCQ Generator?</h3>
+            <ul>
+              <li>
+                <strong>Unlimited Questions</strong> - Never run out of practice
+                material
+              </li>
+              <li>
+                <strong>Any Topic</strong> - From programming to history to
+                science
+              </li>
+              <li>
+                <strong>Adaptive Difficulty</strong> - Questions match your
+                skill level
+              </li>
+              <li>
+                <strong>Instant Feedback</strong> - Learn from explanations
+                immediately
+              </li>
+              <li><strong>No Signup</strong> - Start practicing in seconds</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Questions Feed - all questions appear here -->
+        <div
+          id="questionsFeed"
+          class="questions-feed"
+          role="feed"
+          aria-label="Quiz questions"
+        ></div>
+
+        <!-- Loading State (shown at bottom while generating) -->
+        <div
+          id="loading"
+          class="loading hidden"
+          role="status"
+          aria-live="polite"
+        >
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Generating question...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error hidden" role="alert" aria-live="assertive">
+          <p id="errorMsg">Something went wrong</p>
+          <button id="retryBtn" class="btn btn-secondary">Retry</button>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer" role="contentinfo">
+        <p>
+          &copy; 2026 <a href="https://sodeom.com" rel="noopener">Sodeom</a>.
+          Free AI-powered learning tools.
+        </p>
+        <nav aria-label="Footer navigation">
+          <a href="#main-content">Back to top</a>
+        </nav>
+      </footer>
+    </div>
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <script type="module" src="src/app.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((reg) => console.log("SW registered"))
+            .catch((err) => console.log("SW registration failed"));
+        });
+      }
+    </script>
+  </body>
+</html>
