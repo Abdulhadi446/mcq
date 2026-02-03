@@ -28,7 +28,7 @@ const DIFFICULTY_LEVELS = {
 };
 
 // System prompt for strict JSON MCQ output (combined with user prompt for GET request)
-const SYSTEM_PROMPT = `You are an MCQ generator. Output ONLY valid JSON. Generate a single UNIQUE multiple-choice question with exactly 4 choices. Format: {"question":"...","choices":[{"id":"A","text":"..."},{"id":"B","text":"..."},{"id":"C","text":"..."},{"id":"D","text":"..."}],"correct":"B","explanation":"..."}. No markdown, no extra text.`;
+const SYSTEM_PROMPT = `You are an MCQ generator. Output ONLY valid JSON. Generate a single UNIQUE multiple-choice question with exactly 4 choices. The correct answer MUST be randomly placed at A, B, C, or D - vary the position each time, do NOT always use B. Format: {"question":"...","choices":[{"id":"A","text":"..."},{"id":"B","text":"..."},{"id":"C","text":"..."},{"id":"D","text":"..."}],"correct":"<A or B or C or D randomly>","explanation":"..."}. No markdown, no extra text.`;
 
 /**
  * Build the full prompt for a topic (combines system + user prompt for GET request)
@@ -323,6 +323,48 @@ function validateMCQ(obj) {
 }
 
 /**
+ * Shuffle array using Fisher-Yates algorithm
+ */
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+/**
+ * Randomize the position of the correct answer
+ */
+function randomizeChoices(mcq) {
+  const letters = ["A", "B", "C", "D"];
+
+  // Find the correct answer text
+  const correctChoice = mcq.choices.find((c) => c.id === mcq.correct);
+  if (!correctChoice) return mcq;
+
+  const correctText = correctChoice.text;
+
+  // Shuffle the choices
+  const shuffledChoices = shuffleArray(mcq.choices);
+
+  // Reassign IDs based on new positions
+  shuffledChoices.forEach((choice, index) => {
+    choice.id = letters[index];
+  });
+
+  // Find new correct answer ID
+  const newCorrect = shuffledChoices.find((c) => c.text === correctText);
+
+  return {
+    ...mcq,
+    choices: shuffledChoices,
+    correct: newCorrect ? newCorrect.id : mcq.correct,
+  };
+}
+
+/**
  * Call Sodeom AI endpoint
  */
 async function callSodeomAI(topic, history = [], difficulty = 1, retries = 3) {
@@ -367,7 +409,9 @@ async function callSodeomAI(topic, history = [], difficulty = 1, retries = 3) {
       const parsed = parseAIResponse(data.answer);
 
       if (parsed.ok) {
-        return { success: true, mcq: parsed.data, rawAnswer: data.answer };
+        // Randomize choice positions to avoid always-B pattern
+        const randomizedMCQ = randomizeChoices(parsed.data);
+        return { success: true, mcq: randomizedMCQ, rawAnswer: data.answer };
       } else {
         lastError = new Error(parsed.error);
         // Retry on parse failure
